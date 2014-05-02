@@ -22,6 +22,9 @@
 							</span>
 							<!-- You should escape user input. It's not automatic yet. -->
 							<input type="text" disabled value="{{todo.name|escape}}" class="form-control">
+							<span class="input-group-btn">
+								<button class="btn btn-danger" type="button" onclick="removeItem('{{todo.id}}')"><i class="glyphicon glyphicon-trash"></i> Remove item</button>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -31,13 +34,13 @@
 		{% endblock %}
 	</section>
 
-	<form id="additem">
+	<form id="additem" onsubmit="addItem(); return false;">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="input-group">
 					<input name="todoname" type="text" class="form-control">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" onclick="addItem()">Add item</button>
+						<button class="btn btn-success" type="button" onclick="addItem()">Add a new todo item</button>
 					</span>
 				</div>
 			</div>

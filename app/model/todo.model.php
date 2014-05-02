@@ -13,7 +13,21 @@
  * @property ofwTodoData $data This is documented in /plugins/_project/doc/doc.php. Not required, but allows autocomplete in PhpStorm and others.
  */
 class Todo extends zajModel {
-	
+
+	// By default, models are ordered so that new items are on top. For a to do list, we want the opposite
+	/**
+	 * Set to DESC or ASC depending on the default fetch sort order.
+	 **/
+	public static $fetch_order = 'ASC';
+	/**
+	 * Set to the field which should be the default fetch sort field.
+	 **/
+	public static $fetch_order_field = 'ordernum';
+
+	// You can also use $fetch_order_field to order by name or whatever field you wish...
+
+
+
 	/**
 	 * __model function. creates the database fields available for objects of this class.
 	 * 

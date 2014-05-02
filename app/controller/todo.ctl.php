@@ -49,8 +49,12 @@
 		 * Remove a to do item
 		 */
 		public function remove(){
-			// Remove the item
-				
+			// Fetch my item
+				/** @var Todo $todo - this enables autocomplete for PhpStorm */
+				$todo = Todo::fetch($_GET['id']);
+			// Remove the item (this does not delete it from the database, instead it sets its 'status' field to deleted.
+				$todo->delete();
+				// You can permanently delete it with $todo->delete(true). This is not recommended.
 			// Now just return ok
 				return $this->zajlib->ajax('ok');
 		}
