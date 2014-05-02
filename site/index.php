@@ -74,11 +74,11 @@
 	// - $zajconf['mysql_ignore_tables'] allows you to define external tables. these will
 	//		not be updated and will not be available within the model framework.
 	////////////////////////////////////////////////////////////////////////////////
-		$zajconf['mysql_enabled'] = false;
+		$zajconf['mysql_enabled'] = true;
 		$zajconf['mysql_server'] = "localhost";
-		$zajconf['mysql_user'] = "";
-		$zajconf['mysql_password'] = "";
-		$zajconf['mysql_db'] = "";
+		$zajconf['mysql_user'] = "ofwtodolist";
+		$zajconf['mysql_password'] = "Nq8EAqHrveR8zj";
+		$zajconf['mysql_db'] = "ofwtodolist";
 		$zajconf['mysql_ignore_tables'] = array();
 
 	////////////////////////////////////////////////////////////////////////////////

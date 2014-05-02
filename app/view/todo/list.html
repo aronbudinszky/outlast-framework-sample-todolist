@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+<!-- Anything placed outside of blocks (when extending) will not be processed, so this comment will be ignored. -->
+
+<!-- To see how ajax requests work, take a look at the /site/js/todolist.js file (which is loaded just below) -->
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="{{baseurl}}css/style.css">
+	<link rel="shortcut icon" type="image/png" href="{{baseurl}}img/outlast-favicon.png">
+	<script language="JavaScript" src="{{baseurl}}js/todolist.js" type="text/javascript"></script>
+{% endblock head %}
+
+{% block content %}
+	<section id="todolist">
+		{% block todolist %}
+			{% foreach todos as todo %}
+				<div class="row">
+					<div class="col-md-12">
+						<div class="input-group">
+							<span class="input-group-addon">
+								<input type="checkbox" onchange="toggleItem('{{todo.id}}')" {% if todo.completed %}checked{% endif %} >
+							</span>
+							<!-- You should escape user input. It's not automatic yet. -->
+							<input type="text" disabled value="{{todo.name|escape}}" class="form-control">
+						</div>
+					</div>
+				</div>
+			{% elseforeach %}
+				<div class="alert alert-warning"><strong>You have no todo items yet!</strong> Add some now.</div>
+			{% endforeach %}
+		{% endblock %}
+	</section>
+
+	<form id="additem">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="input-group">
+					<input name="todoname" type="text" class="form-control">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" onclick="addItem()">Add item</button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</form>
+{% endblock content %}

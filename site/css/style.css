@@ -1,8 +1,5 @@
-/** Add your own styling here! **/
+/** This is some styling for the to do list app **/
 
-/** ...or better, use Sass: http://sass-lang.com/ **/
-
-/** ...and remove the example below! **/
 body{
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -10,3 +7,5 @@ div.logobox h3{ padding-top: 15px; }
 a{
 	cursor: pointer;
 }
+
+section#todolist > div{ margin-bottom: 10px; }

@@ -1,6 +1,6 @@
 <?php
 /**
- * This is just a sample model file. You can (and should) delete this once you start developing your app.
+ * This is a to do item.
  * @package Model
  * @subpackage Example
  */
@@ -9,10 +9,10 @@
 /**
  * Documentation of cached fields and the data object.
  * @property string $name
- * @property string $description
- * @property stdClass $data You should document this in a separate doc.php file.
+ * @property string $completed
+ * @property ofwTodoData $data This is documented in /plugins/_project/doc/doc.php. Not required, but allows autocomplete in PhpStorm and others.
  */
-class Sample extends zajModel {
+class Todo extends zajModel {
 	
 	/**
 	 * __model function. creates the database fields available for objects of this class.
@@ -23,8 +23,7 @@ class Sample extends zajModel {
 		// begin custom fields definition:
 			$f = new stdClass();
 			$f->name = zajDb::name();
-			$f->description = zajDb::text();
-			$f->photos = zajDb::photos();
+			$f->completed = zajDb::boolean();
 		// end of custom fields definition
 		/////////////////////////////////////////		
 
@@ -43,13 +42,8 @@ class Sample extends zajModel {
 	 * This method is called after the object is fetched from the database. You will want to use this for caching.
 	 **/
 	public function __afterFetch(){
-		// The following code will cache the description of this object
-			$this->description = $this->data->description;
-		// name and id are cached automatically, so they are available as $this->name and $this->id
-
-		// Fields you do not cache can be accessed via the $this->data->fieldname property.
+		// Let's cache the completed field. You should cache most fields that you want to display in a list.
+			$this->completed = $this->data->completed;
 	}
-	
-	// For additional available methods, see documentation on model methods.
 
 }

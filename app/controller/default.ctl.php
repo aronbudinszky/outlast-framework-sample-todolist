@@ -18,10 +18,13 @@
 		 * The main() method is the default for any controller.
 		 **/
 		public function main(){
-			// Now let's show the welcome template
-				$this->zajlib->template->show('welcome.html');
+			// Just redirect to to do controller
+				return $this->zajlib->redirect('todo/');
+			// You should always return something in controllers. This helps you write unit tests - but we'll worry about that later...
 		}
-		
+
+		/** See the to do controller: todo.ctl.php */
+
 		/**
 		 * This method will handle all requests which could not be routed anywhere.
 		 * @param string $request A string of the actual request.

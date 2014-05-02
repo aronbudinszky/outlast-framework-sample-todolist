@@ -2,7 +2,7 @@
 <head>
 	<!-- Customize this base.html file to fit your project! See Template docs on http://framework.outlast.hu/ -->
 
-	<title>Outlast Framework - Welcome</title>
+	<title>Outlast Framework - Todo List</title>
 
 	<!-- custom font -->
 	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300' rel='stylesheet' type='text/css'>
@@ -18,9 +18,11 @@
 	<script language="JavaScript" src="{{baseurl}}system/js/mozajik-base-jquery.js{% cachebuster %}" type="text/javascript"></script>
 	{{zaj.js}}
 
+	{% block head %}
 	<!-- Add your css, js, and img files in /site/css/*, /site/js/*, etc. -->
 	<link rel="stylesheet" type="text/css" href="{{baseurl}}css/style.css">
 	<link rel="shortcut icon" type="image/png" href="{{baseurl}}img/outlast-favicon.png">
+	{% endblock head %}
 </head>
 <body>
 	<div class="container">
@@ -30,19 +32,14 @@
 				<a href="http://framework.outlast.hu/" target="_blank"><img src="{{baseurl}}system/img/outlast-framework-logo.png" style="max-height: 115px;"></a>
 			</div>
 			<div class="col-md-9">
-				<h3>outlast development framework - <a href="http://framework.outlast.hu/" target="_blank">framework.outlast.hu</a></h3>
+				<h3>just another todo list example app</h3>
 			</div>
 		</div>
 
 		<hr>
 
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-			{% block content %}
-			{% endblock content %}
-			</div>
-		</div>
-
+		{% block content %}
+		{% endblock content %}
 	</div>
 </body>
 </html>
